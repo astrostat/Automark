@@ -1,0 +1,2 @@
+import(foreach, doMC, glmnet, mgcv, splines)
+export(spec, spec.tbreak, get.opt.spec, plotspec)
