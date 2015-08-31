@@ -31,4 +31,4 @@ plotspec(dat$x2, out$best.fit[[2]], np=F, col="red")
 
 ## References
 * Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk (2015).
-Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources. Submitted.
+Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources. Submitted. [\[arXiv\]](http://arxiv.org/abs/1508.07083)
