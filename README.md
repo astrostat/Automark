@@ -12,6 +12,7 @@ to change. The details is given in Wong et. al. (2015).
 This package can be installed via function `install_github` in R package `devtools`:
 
 ``` r
+install.packages("devtools")
 devtools::install_github("astrostat/Automark")
 
 ```
