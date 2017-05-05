@@ -88,7 +88,7 @@ simple = TRUE, v = 1)
   }
 }
 \references{
-Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk (2015). \emph{Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources}. Submitted.
+Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk (2016). \emph{Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources}. The Annals of Applied Statistics, 10(2), 1107-1134.
 }
 \seealso{
   \code{\link{plotspec}}

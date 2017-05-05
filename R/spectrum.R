@@ -43,14 +43,14 @@ spec <- function(x, y, A, delta.t, delta.w, reps=1, display=TRUE,
 
   # select splines
   if (bs=="tr"){
-    basis <- smooth.construct.tr.smooth.spec(s(x, bs="tr", m=p, k=p+K+1) ,data.frame(cbind(x,y)),NULL)
+    basis <- smooth.construct.tr.smooth.spec(mgcv::s(x, bs="tr", m=p, k=p+K+1) ,data.frame(cbind(x,y)),NULL)
     B.splines <- basis$X[,-1]
   } else if (bs=="rb"){
-    basis <- smooth.construct.rb.smooth.spec(s(x, bs="rb", m=p, k=p+K+1) ,data.frame(cbind(x,y)),NULL)
+    basis <- smooth.construct.rb.smooth.spec(mgcv::s(x, bs="rb", m=p, k=p+K+1) ,data.frame(cbind(x,y)),NULL)
     B.splines <- basis$X[,-1]
   } else if (bs=="bs"){
     knot<-quantile(x[2:(n-1)],seq(0,1,length=K+2))[2:(K+1)]
-    B.splines <- as.matrix(bs(x,knots=knot,degree=p,intercept=F))
+    B.splines <- as.matrix(splines::bs(x,knots=knot,degree=p,intercept=F))
   }
 
   # create data matrix for atoms
@@ -81,9 +81,9 @@ spec <- function(x, y, A, delta.t, delta.w, reps=1, display=TRUE,
 
     # glmnet fit
     if (bs=="tr"||bs=="rb"){
-      fit <- glmnet(x=X,y=y,family="poisson",offset=off.const,alpha=alpha,nlambda=nlambda,penalty.factor=c(rep(0,p),rep(lam1,n1-p),rep(lam2,n2)),lambda.min.ratio=glmnet.lam.min)
+      fit <- glmnet::glmnet(x=X,y=y,family="poisson",offset=off.const,alpha=alpha,nlambda=nlambda,penalty.factor=c(rep(0,p),rep(lam1,n1-p),rep(lam2,n2)),lambda.min.ratio=glmnet.lam.min)
     } else if (bs=="bs"){
-      fit <- glmnet(x=X,y=y,family="poisson",offset=off.const,alpha=alpha,nlambda=nlambda,penalty.factor=c(rep(lam1,n1),rep(lam2,n2)),lambda.min.ratio=glmnet.lam.min)
+      fit <- glmnet::glmnet(x=X,y=y,family="poisson",offset=off.const,alpha=alpha,nlambda=nlambda,penalty.factor=c(rep(lam1,n1),rep(lam2,n2)),lambda.min.ratio=glmnet.lam.min)
     }
     # computing mdl
     nonzeros <- apply(coef(fit),2,function(x,n1,n2){c(sum(x[1:(n1+1)]!=0),sum(x[(n1+2):(n1+n2+1)]!=0))},n1=n1,n2=n2)

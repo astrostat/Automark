@@ -36,7 +36,8 @@ spec.tbreak <- function(x1, x2, y, A, delta.t, delta.w,
                         cpus=4, assign.emiss=NA, emdl=TRUE, v1=1, v2=1,
                         simple=TRUE, max.B=4, min.span=5){
   if (cpus>1){
-    registerDoMC(cores=cpus)
+    cl <- parallel::makeCluster(min(cpus, parallel::detectCores()))
+    doParallel::registerDoParallel(cl)
   }
 
   n1 <- length(x1)
@@ -59,7 +60,7 @@ spec.tbreak <- function(x1, x2, y, A, delta.t, delta.w,
 
     # compute mdl
     if (cpus>1){
-      criteria <- foreach(mci = 1:S,.combine=c,.verbose=display) %dopar% {
+      criteria <- foreach::foreach(mci = 1:S,.combine=c,.verbose=display) %dopar% {
         MDL(chrom=pop[mci,],x1=x1,x2=x2,y=y,A=A,delta.t=delta.t,delta.w=delta.w,opt=opt,min.span=min.span,assign.emiss=assign.emiss,emdl=emdl, v1=v1, v2=v2)
       }
     } else {
@@ -90,6 +91,7 @@ spec.tbreak <- function(x1, x2, y, A, delta.t, delta.w,
       cont <- F
     }
   }
+  if (cpus>1) parallel::stopCluster(cl)
 
   # final fit
   minx1 <- min(x1)-1

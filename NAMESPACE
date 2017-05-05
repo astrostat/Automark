@@ -1,2 +1,2 @@
-import(foreach, doMC, glmnet, mgcv, splines)
+importFrom(foreach, "%dopar%")
 export(spec, spec.tbreak, get.opt.spec, plotspec)

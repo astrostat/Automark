@@ -1,10 +1,10 @@
 Package: Automark
 Type: Package
 Title: Automatic Change Point Detection in the Spectra of High-energy Astrophysical Sources
-Version: 0.1.0
-Date: 2015-07-19
+Version: 0.1.1
+Date: 2017-05-04
 Author: Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk
 Maintainer: Raymond K. W. Wong <raymondkww.dev@gmail.com>
-Description: This package implements a method for modeling photon counts collected form observation of variable-intensity astronomical sources. It aims to mark the abrupt changes in the corresponding wavelength distribution of the emission automatically. In the underlying methodology, change points are embedded into a marked Poisson process, where photon wavelengths are regarded as marks and both the Poisson intensity parameter and the distribution of the marks are allowed to change. The details is given in Wong et. al. (2015).
+Description: This package implements a method for modeling photon counts collected form observation of variable-intensity astronomical sources. It aims to mark the abrupt changes in the corresponding wavelength distribution of the emission automatically. In the underlying methodology, change points are embedded into a marked Poisson process, where photon wavelengths are regarded as marks and both the Poisson intensity parameter and the distribution of the marks are allowed to change. The details is given in Wong et. al. (2016).
 License: GPL (>= 2)
-Depends: glmnet (>= 2.0-2), mgcv (>= 1.8-6), splines (>= 3.2.0), foreach (>= 1.4.2), doMC (>= 1.3.3)
+Imports: glmnet (>= 2.0-5), mgcv (>= 1.8-15), splines (>= 3.2.0), foreach (>= 1.4.2), doParallel (>= 1.0.10)

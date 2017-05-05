@@ -6,7 +6,7 @@ abrupt changes in the corresponding wavelength distribution of the emission
 **automatically**. In the underlying methodology, change points are embedded into a
 marked Poisson process, where photon wavelengths are regarded as marks and both
 the Poisson intensity parameter and the distribution of the marks are allowed
-to change. The details is given in Wong et. al. (2015).
+to change. The details is given in Wong et. al. (2016).
 
 ## Installation
 This package can be installed via function `install_github` in R package `devtools`:
@@ -31,5 +31,5 @@ plotspec(dat$x2, out$best.fit[[2]], np=F, col="red")
 
 
 ## References
-* Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk (2015).
-Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources. Submitted. [\[arXiv\]](http://arxiv.org/abs/1508.07083)
+* Raymond K. W. Wong, Vinay L. Kashyap, Thomas C. M. Lee and David A. van Dyk (2016).
+Detecting Abrupt Changes in the Spectra of High-energy Astrophysical Sources. The Annals of Applied Statistics, 10(2), 1107-1134. [Journal](http://dx.doi.org/10.1214/14-AOAS750) [\[arXiv\]](http://arxiv.org/abs/1508.07083)
