@@ -36,14 +36,13 @@ max.B = 4, min.span = 5)
     If TRUE, progress will be shown.
   }
   \item{opt}{
-    An option list returned by \code{\link{get.opt.spec}}. This is used in the homogeneous spectrum fitting between change points.
+    An option list returned by \code{\link{get.opt.spec}}. This is used in the homogeneous spectrum fitting between change points. If assign.emiss=NULL, nlambda will be automatically set to 10000 if it is set smaller than 10000. If this automatic change is not desired, one can set lam.ratio.len=-1. (lam.ratio.len is a useless parameter if assign.emiss=NULL)
   }
   \item{cpus}{
     Number of cores to use for parallel execution.
   }
   \item{assign.emiss}{
-    Indices of wavelength bins that are allowed to have emission line.
-    If NA, assign_emiss will be set to 1:length(y).
+    Indices of wavelength bins that are allowed to have emission line. If NA, assign_emiss will be set to 1:length(y).
   }
   \item{emdl}{
     If TRUE, extended MDL, rather than MDL, is used.

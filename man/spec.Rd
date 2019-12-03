@@ -37,11 +37,12 @@ simple = TRUE, v = 1)
     If TRUE, progress bar is printed during fitting
   }
   \item{opt}{
-    An option list returned by \code{\link{get.opt.spec}}
+    An option list returned by \code{\link{get.opt.spec}}. This is used in the homogeneous spectrum fitting between change points. If assign.emiss=NULL, nlambda will be automatically set to 10000 if it is set smaller than 10000. If this automatic change is not desired, one can set lam.ratio.len=-1. (lam.ratio.len is a useless parameter if assign.emiss=NULL)
   }
   \item{assign.emiss}{
     Indices of wavelength bins that are allowed to have emission line.
     If NA, assign_emiss will be set to 1:length(y).
+    If NULL, no emission line will be fitted.
   }
   \item{emdl}{
     If TRUE, extended MDL, rather than MDL, is used.
@@ -61,10 +62,10 @@ simple = TRUE, v = 1)
   \item{best.beta}{
     Regression coefficients of the output spectrum
   }
-  \item{fitted.bright}{
-    Linear predictor of the output spectrum; exp(fitted_bright) is the fitted brightness function.
+  \item{fitted.logbright}{
+    Linear predictor of the output spectrum; exp(fitted_logbright) is the fitted brightness function.
   }
-  \item{fitted.bright.ne}{
+  \item{fitted.logbright.ne}{
     Linear predictor without emission lines
   }
   \item{df}{

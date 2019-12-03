@@ -1,2 +1,2 @@
 importFrom(foreach, "%dopar%")
-export(spec, spec.tbreak, get.opt.spec, plotspec)
+export(spec, spec.tbreak, get.opt.spec, plotspec, create.specheatmap.matrix)
